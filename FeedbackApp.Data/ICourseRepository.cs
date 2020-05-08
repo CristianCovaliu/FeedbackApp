@@ -7,7 +7,7 @@ namespace FeedbackApp.Data
 {
     public interface ICourseRepository
     {
-        IEnumerable<Course> AllCourses { get; }
+        List<Course> GetAllCourses();
         Course GetCourseById(int courseId);
     }
 }

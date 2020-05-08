@@ -16,12 +16,9 @@ namespace FeedbackApp.Data
             _appDbContext = appDbContext;                                     
         }
 
-        public IEnumerable<Course> AllCourses
+        public List<Course> GetAllCourses()
         {
-            get
-            {
-                return _appDbContext.Courses.Include(c => c.Teacher);
-            }
+            return _appDbContext.Courses.ToList();
         }
 
         public Course GetCourseById(int courseId)

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using FeedbackApp.Data;
+using FeedbackApp.Domain;
 using FeedbackApp.Models;
 using FeedbackApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,20 +17,20 @@ namespace FeedbackApp.Controllers
     {
         private readonly ICourseRepository _courseRepository;
         private readonly ITeacherRepository _teacherRepository;
+        private readonly IMapper _mapper;
 
-        public CourseController(ICourseRepository courseRepository, ITeacherRepository teacherRepository)
+        public CourseController(ICourseRepository courseRepository, ITeacherRepository teacherRepository, IMapper mapper)
         {
             _courseRepository = courseRepository;
             _teacherRepository = teacherRepository;
+            _mapper = mapper;
         }
 
-        public ViewResult List()
-        { 
-            CourseListViewModel courseListViewModel = new CourseListViewModel();
-            courseListViewModel.Courses = _courseRepository.AllCourses;
-
-            courseListViewModel.CurrentDescription = "Available Courses";
-            return View(courseListViewModel);
+        public IActionResult List()
+        {
+            var courseListFromDb = _courseRepository.GetAllCourses();
+            var model = _mapper.Map<IEnumerable<CourseListViewModel>>(courseListFromDb);
+            return View(model);
         }
 
         public IActionResult Details(int id)

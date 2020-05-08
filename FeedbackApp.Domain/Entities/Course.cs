@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FeedbackApp.Domain.Entities
 {
-    public class Course
+    public partial class Course
     {
         public int CourseId { get; set; }
         public string Title { get; set; }
@@ -13,6 +13,6 @@ namespace FeedbackApp.Domain.Entities
         public string ImageUrl { get; set; }
         public decimal Price { get; set; }
         public int TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
+        public virtual Teacher Teacher { get; set; }
     }
 }
