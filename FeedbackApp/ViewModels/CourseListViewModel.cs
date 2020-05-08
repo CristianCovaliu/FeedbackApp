@@ -8,7 +8,10 @@ namespace FeedbackApp.ViewModels
 {
     public class CourseListViewModel
     {
-        public IEnumerable<Course> Courses { get; set; }
-        public string CurrentDescription { get; set; }
+        public int CourseId { get; set; }
+        public string Title { get; set;}
+        public string ImageUrl { get; set; }
+        public decimal Price { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace FeedbackApp.Domain
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
+            this.Database.EnsureCreated();
         }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Teacher> Teachers { get; set; }

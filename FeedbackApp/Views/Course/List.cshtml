@@ -1,8 +1,8 @@
-﻿@model CourseListViewModel
+﻿@model IEnumerable<CourseListViewModel>
 
 
-<h1>@Model.CurrentDescription</h1>
-@foreach (var course in Model.Courses)
+<h1>Available Courses</h1>
+@foreach (var course in Model)
 {
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">

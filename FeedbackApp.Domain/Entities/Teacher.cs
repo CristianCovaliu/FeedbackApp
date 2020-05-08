@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FeedbackApp.Domain.Entities
 {
-    public class Teacher
+    public partial class Teacher
     {
         public int TeacherId { get; set; }
         public string FirstName { get; set; }
