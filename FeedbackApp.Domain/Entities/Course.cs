@@ -6,6 +6,7 @@ namespace FeedbackApp.Domain.Entities
 {
     public partial class Course
     {
+       
         public int CourseId { get; set; }
         public string Title { get; set; }
         public string ShortDescription { get; set; }

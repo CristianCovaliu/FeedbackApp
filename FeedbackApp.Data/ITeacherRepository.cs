@@ -7,6 +7,7 @@ namespace FeedbackApp.Data
 {
     public interface ITeacherRepository
     {
+        List<Teacher> GetTeachers();
         IEnumerable<Teacher> AllTeachers { get; }
     }
 }

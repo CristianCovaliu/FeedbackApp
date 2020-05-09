@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FeedbackApp.Models;
+using FeedbackApp.Data;
+using FeedbackApp.ViewModels;
+using AutoMapper;
 
 namespace FeedbackApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICourseRepository _courseRepository;
+        private readonly IMapper _mapper;
+        public HomeController(ICourseRepository courseRepository, IMapper mapper)
         {
-            _logger = logger;
+            _courseRepository = courseRepository;
+            _mapper = mapper;
         }
-
         public IActionResult Index()
         {
-            return View();
+            var courseListFromDb = _courseRepository.GetAllCourses(); 
+            var homeViewModel = _mapper.Map<IEnumerable<HomeViewModel>>(courseListFromDb);
+            return View(homeViewModel);
         }
 
         public IActionResult Privacy()

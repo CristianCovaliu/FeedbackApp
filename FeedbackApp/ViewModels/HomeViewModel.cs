@@ -6,12 +6,10 @@ using FeedbackApp.Domain.Entities;
 
 namespace FeedbackApp.ViewModels
 {
-    public class CourseListViewModel
+    public class HomeViewModel
     {
         public int CourseId { get; set; }
-        public string Title { get; set;}
+        public string Title { get; set; }
         public string ImageUrl { get; set; }
-        public decimal Price { get; set; }
-        public Teacher Teacher { get; set; }
     }
 }

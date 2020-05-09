@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FeedbackApp.Models
 {
-    public class Teacher
+    public class TeacherModel
     {
         public int TeacherId { get; set; }
         public string FirstName { get; set; }
