@@ -29,18 +29,44 @@ namespace FeedbackApp.Controllers
         public IActionResult List()
         {
             var courseListFromDb = _courseRepository.GetAllCourses();
+            var teacherListFromDb = _teacherRepository.GetTeachers();
+            //var model = new List<CourseListViewModel>();
+            //foreach (var course in courseListFromDb)
+            //{
+            //    var courseModelItem = new CourseListViewModel();
+            //    courseModelItem.CourseId = course.CourseId;
+            //    courseModelItem.ImageUrl = course.ImageUrl;
+            //    courseModelItem.Title = course.Title;
+            //    courseModelItem.Price = course.Price;
+            //    courseModelItem.Teacher.FirstName = course.Teacher.FirstName;
+            //    courseModelItem.Teacher.LastName = course.Teacher.LastName;
+            //    model.Add(courseModelItem);
+            //}
+            
             var model = _mapper.Map<IEnumerable<CourseListViewModel>>(courseListFromDb);
+
             return View(model);
         }
 
         public IActionResult Details(int id)
         {
             var course = _courseRepository.GetCourseById(id);
+            //var teacher = _teacherRepository.GetTeachers();
             if (course == null)
             {
                 return NotFound();
             }
-            return View(course);
+            //var model = new CourseModel();
+            //model.Title = course.Title;
+            //model.ImageUrl = course.ImageUrl;
+            //model.LongDescription = course.LongDescription;
+            //model.Price = course.Price;
+            //model.ShortDescription = course.ShortDescription;
+            //model.Teacher.FirstName = course.Teacher.FirstName;
+            //model.Teacher.LastName = course.Teacher.LastName;
+
+            var model = _mapper.Map<CourseModel>(course);
+            return View(model);
         }
     }
 }

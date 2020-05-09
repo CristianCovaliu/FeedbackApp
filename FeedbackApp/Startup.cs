@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using FeedbackApp.Mappings;
+using FeedbackApp.ViewModels;
 
 namespace FeedbackApp
 {
@@ -34,6 +35,8 @@ namespace FeedbackApp
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(typeof(CourseProfile));
+            services.AddAutoMapper(typeof(CourseDetailsProfile));
+            services.AddAutoMapper(typeof(HomeProfile));
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddControllersWithViews();

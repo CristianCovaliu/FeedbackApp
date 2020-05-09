@@ -25,7 +25,7 @@ namespace FeedbackApp.Domain
             modelBuilder.Entity<Teacher>().HasData(new Teacher { TeacherId = 2, FirstName = "Ioana", LastName = "Popescu", Description = "Lorem ipsum" });
             modelBuilder.Entity<Teacher>().HasData(new Teacher { TeacherId = 3, FirstName = "Georgiana", LastName = "Timofte", Description = "Lorem ipsum" });
 
-            //seed pies
+            //seed courses
 
             modelBuilder.Entity<Course>().HasData(new Course
             {
