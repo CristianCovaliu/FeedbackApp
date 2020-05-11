@@ -1,0 +1,44 @@
+﻿@model FeedbackModel
+
+
+    <form asp-action="Feedback" method="post" class="form-horizontal" role="form">
+        <h4>Please Send Us Your Feedback</h4>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="FirstName" class="form-control" />
+            </div>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="LastName" class="form-control" />
+            </div>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Course" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Course" class="form-control" />
+            </div>
+            <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Opinion" class="col-md-2 control-label"></label>
+            <textarea asp-for="Opinion" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Opinion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+    </form>

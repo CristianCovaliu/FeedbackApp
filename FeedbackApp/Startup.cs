@@ -37,8 +37,10 @@ namespace FeedbackApp
             services.AddAutoMapper(typeof(CourseProfile));
             services.AddAutoMapper(typeof(CourseDetailsProfile));
             services.AddAutoMapper(typeof(HomeProfile));
+            services.AddAutoMapper(typeof(FeedbackProfile));
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddControllersWithViews();
         }
 
