@@ -14,6 +14,7 @@ namespace FeedbackApp.Domain
         }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
