@@ -40,7 +40,7 @@ namespace FeedbackApp.Controllers
 
         public IActionResult FeedbackSubmitted()
         {
-            ViewBag.FeedbackSubmittedMessage = "Thanks for your feedback.";
+            ViewBag.FeedbackSubmittedMessage = "Thanks for your feedback!";
             return View();
         }
     }

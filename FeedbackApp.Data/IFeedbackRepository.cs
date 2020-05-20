@@ -7,6 +7,7 @@ namespace FeedbackApp.Data
 {
     public interface IFeedbackRepository
     {
+        List<Feedback> GetAllFeedbacks();
         void CreateFeedback(Feedback feedback);
     }
 }

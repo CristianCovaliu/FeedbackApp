@@ -1,0 +1,18 @@
+﻿@model TeacherAdminModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>Are you sure you want to delete this?</h2>
+<h3>@Model.FirstName @Model.LastName</h3>
+<div class="thumbnail">
+    <div class="caption-full">
+        <p>@Model.Description</p>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TeacherId" />
+        <input type="submit" value="Delete" /> |
+        <a asp-action="Index">Back to Teachers</a>
+    </form>
+</div>

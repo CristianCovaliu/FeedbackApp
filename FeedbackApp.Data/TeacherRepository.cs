@@ -17,9 +17,32 @@ namespace FeedbackApp.Data
 
         public IEnumerable<Teacher> AllTeachers => _appDbContext.Teachers;
 
+        public void CreateTeacher(Teacher teacher)
+        {
+            _appDbContext.Teachers.Add(teacher);
+            _appDbContext.SaveChanges();
+        }
+
+        public void DeleteTeacher(int id)
+        {
+            var teacher = _appDbContext.Teachers.SingleOrDefault(c => c.TeacherId == id);
+            _appDbContext.Teachers.Remove(teacher);
+            _appDbContext.SaveChanges();
+        }
+
+        public Teacher GetTeacherById(int teacherId)
+        {
+            return _appDbContext.Teachers.FirstOrDefault(c => c.TeacherId == teacherId);
+        }
+
         public List<Teacher> GetTeachers()
         {
             return _appDbContext.Teachers.ToList();
+        }
+
+        public void SaveChanges()
+        {
+            _appDbContext.SaveChanges();
         }
     }
 }

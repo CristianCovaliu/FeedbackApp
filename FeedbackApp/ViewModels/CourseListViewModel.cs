@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FeedbackApp.Domain.Entities;
+using FeedbackApp.Models;
 
 namespace FeedbackApp.ViewModels
 {

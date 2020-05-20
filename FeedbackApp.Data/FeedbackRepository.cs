@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using FeedbackApp.Domain;
 using FeedbackApp.Domain.Entities;
@@ -20,6 +21,11 @@ namespace FeedbackApp.Data
 
             _appDbContext.Feedbacks.Add(feedback);
             _appDbContext.SaveChanges();
+        }
+
+        public List<Feedback> GetAllFeedbacks()
+        {
+            return _appDbContext.Feedbacks.ToList();
         }
     }
 }
