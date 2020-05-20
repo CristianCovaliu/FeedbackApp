@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FeedbackApp.Areas.Admin.Models.TeacherAdminModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h1>Active Teachers</h1>
+<div class="main-title">
+    <button type="button" onclick="location.href='@Url.Action("Create", "Teacher")'">Add Teacher</button>
+</div>
+@foreach (var teacher in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3 class="center-block">
+                    <p>@teacher.FirstName @teacher.LastName</p>
+                </h3>
+                <p>@teacher.Description</p>
+            </div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@teacher.TeacherId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@teacher.TeacherId">Delete</a>
+            </div>
+        </div>
+    </div>
+}

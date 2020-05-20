@@ -1,0 +1,24 @@
+﻿@model IEnumerable<FeedbackApp.Areas.Admin.Models.FeedbackAdminModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Active Feedbacks</h1>
+
+@foreach (var feedback in Model)
+{
+<div class="thumbnail">
+    <h2>@feedback.Course</h2>
+    <div class="caption-full">
+        <h3>
+            <p>@feedback.FirstName @feedback.LastName</p>
+        </h3>
+        <h4>
+            <p>@feedback.Opinion</p>
+        </h4>
+        <p>@feedback.FeedbackPlaced</p>
+    </div>
+</div>
+
+}

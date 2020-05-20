@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using FeedbackApp.Mappings;
 using FeedbackApp.ViewModels;
+using FeedbackApp.Areas.Admin.Mappings;
 
 namespace FeedbackApp
 {
@@ -38,10 +39,14 @@ namespace FeedbackApp
             services.AddAutoMapper(typeof(CourseDetailsProfile));
             services.AddAutoMapper(typeof(HomeProfile));
             services.AddAutoMapper(typeof(FeedbackProfile));
+            services.AddAutoMapper(typeof(CourseAdminProfile));
+            services.AddAutoMapper(typeof(TeacherAdminProfile));
+            services.AddAutoMapper(typeof(FeedbackAdminProfile));
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +71,12 @@ namespace FeedbackApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "areaRoute year",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" }
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
